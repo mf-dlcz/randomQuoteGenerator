@@ -18,7 +18,7 @@ let quotes = [
   {
     quote: 'Just one small positive thought in the morning can change your whole day',
     source: 'Dalai Lama',
-    year: 1850
+    year: 'unknown'
   },
   {
     quote: 'Opportunities don\'t happen, you create them.',
@@ -31,7 +31,7 @@ let quotes = [
   {
     quote: 'You don\'t always need a plan. Sometimes you just need to breathe, trust, let go and see what happens.',
     source: 'Mandy Hale',
-    citation: 'Twitter'
+    citation: '100 Inspirational Quotes'
   }
 ];
 
@@ -43,19 +43,62 @@ function getRandomQuote() {
   // 1. Create a variable that generates a random number
   // between zero and the last index in the `quotes` array
 
+  let randomNumb = Math.floor(Math.random()* (quotes.length));
+
   // 2. Use the random number variable and bracket notation 
   // to grab a random object from the `quotes` array, and 
   // store it in a variable
 
+  let randomQuote = quotes[randomNumb];
+
   // 3. Return the variable storing the random quote object
+  //console.log(randomQuote);
+  //console.log(randomNumb);
+  return randomQuote;
 }
 
 /***
  * `printQuote` function
 ***/
+function printQuote() {
 
+   // 1. Create a variable that calls the getRandomQuote() 
+  // function
 
+  let displayRandomQuote = getRandomQuote();
 
+  // 2. Create a variable that initiates your HTML string with 
+  // the first two <p></p> elements, their classNames, 
+  // and the quote and source properties, but leave off 
+  // the second closing `</p>` tag for now
+
+  let stringQuote = `<p class='quote'> ${displayRandomQuote.quote} </p>
+  <p class='source'> ${displayRandomQuote.source} `
+
+  // 3. Use an if statement to check if the citation property 
+  // exists, and if it does, concatenate a <span></span> 
+  // element, appropriate className, and citation property 
+  // to the HTML string
+
+  if( displayRandomQuote.citation !== undefined ) {
+    stringQuote +=`<span class='citation'>${displayRandomQuote.citation}</span>`
+  }
+
+  // 4. Use an if statement to check of the year property exists, 
+  // and if it does, concatenate a <span></span> element, 
+  // appropriate className, and year property to the HTML 
+  //string
+  if(displayRandomQuote.year !== undefined ) {
+    stringQuote += `<span class='year'>${displayRandomQuote.year}</span>`
+}
+  // 5. After the two if statements, concatenate the closing </p> 
+  // tag to the HTML string
+  '</p>'
+  // 6. set the innerHTML of the quote-box div to equal the 
+  // complete HTML string
+  return (document.getElementById('quote-box').innerHTML = stringQuote);
+}
+  
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
