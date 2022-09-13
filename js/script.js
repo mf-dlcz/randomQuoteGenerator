@@ -8,12 +8,12 @@ project 1 - A Random Quote Generator
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
 /*** 
- * `quotes` array with 5 objects: keys and their property values
+ * `quotes` array has 5 objects: Their keys and their property values (quotes, source, year, tag, and citation)
 ***/
 let quotes = [ 
   {
     quote: 'Either you run the day or the day runs you',
-    source: 'Jim Rohn'
+    source: 'Jim Rohn',
   },
   {
     quote: 'Just one small positive thought in the morning can change your whole day',
@@ -26,12 +26,26 @@ let quotes = [
   },
   {
     quote: 'Life is like riding a bicycle. To keep your balance you must keep moving.',
-    source: 'Albert Einstein'
+    source: 'Albert Einstein',
+    tag: 'Theoretical Physicist'
   },
   {
     quote: 'You don\'t always need a plan. Sometimes you just need to breathe, trust, let go and see what happens.',
     source: 'Mandy Hale',
     citation: '100 Inspirational Quotes'
+  },
+  {
+    quote: 'What you do makes a difference, and you have to decide what kind of difference you want to make.',
+    source: 'Jane Goodall',
+    citation: 'Southern New Hamphire University',
+    year: 'unknown',
+    tag: 'English Primatologist'
+  },
+  {
+    quote: 'Don\’t go through life, grow through life.',
+    source: 'Eric Butterworth',
+    citation: 'Southern New Hamphire University',
+    year: 'unknown'
   }
 ];
 
@@ -60,6 +74,8 @@ function getRandomQuote() {
 /***
  * `printQuote` function
 ***/
+/**printQuote calls getRandomQuote(). stringQuote holds the strings inside each property value
+ * (quote, source, year, tag, citation).**/
 function printQuote() {
 
    // 1. Create a variable that calls the getRandomQuote() 
@@ -88,9 +104,12 @@ function printQuote() {
   // and if it does, concatenate a <span></span> element, 
   // appropriate className, and year property to the HTML 
   //string
-  if(displayRandomQuote.year !== undefined ) {
+  if( displayRandomQuote.year !== undefined ) {
     stringQuote += `<span class='year'>${displayRandomQuote.year}</span>`
 }
+  if( displayRandomQuote.tag !== undefined ) {
+    stringQuote += `<span class='tag'>${displayRandomQuote.tag}</span>`
+  }
   // 5. After the two if statements, concatenate the closing </p> 
   // tag to the HTML string
   '</p>'
