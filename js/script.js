@@ -1,16 +1,3 @@
-/******************************************
-Treehouse FSJS Techdegree:
-project 1 - A Random Quote Generator
-******************************************/
-
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
-
-/*** 
- * `quotes` 
- * array has 5 objects: Their keys and their property values (quotes, source, year, tag, and citation)
-***/
 const quotes = [ 
   {
     quote: 'Either you run the day or the day runs you',
